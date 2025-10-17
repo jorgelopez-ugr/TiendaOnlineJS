@@ -1,0 +1,8 @@
+{
+  "main": "parser.js",
+  "type": "module",
+  "dependencies": {
+    "mongoose": "^8.19.1",
+    "node-html-parser": "^7.0.1"
+  }
+}
