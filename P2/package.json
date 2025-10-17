@@ -1,0 +1,16 @@
+{
+  "main": "parser.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file=.env tienda.js"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "chokidar": "^3.6.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1",
+    "node-html-parser": "^7.0.1",
+    "nunjucks": "^3.2.4",
+    "tailwindcss": "^4.1.14"
+  }
+}

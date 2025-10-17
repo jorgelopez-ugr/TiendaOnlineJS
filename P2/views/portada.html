@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-900 text-gray-100">
+    <header class="bg-gray-800 text-gray-100 text-center py-4 border-b border-gray-700">
+        <h1 class="text-6xl font-bold text-left">Nuestros Productos</h1>
+    </header>
+    <main class="container mx-auto py-8 max-w-6xl px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for i in range(6) %}
+                <div class="bg-gray-800 shadow-lg rounded p-4 border border-gray-700">
+                    {% if productos and productos|length > 0 %}
+                        {% set random_index = range(0, productos|length - 1)|random %}
+                        <img class="w-full h-40 object-contain rounded-t-lg bg-white" src="{{ productos[random_index].url_img }}" alt="{{ productos[random_index].texto_1 }}">
+                        <h2 class="text-lg font-bold mt-4 text-gray-100">{{ productos[random_index].texto_1 }}</h2>
+                        <p class="text-gray-300 mt-2">{{ productos[random_index].texto_2 }}</p>
+                        <p class="text-indigo-300 font-semibold mt-2 ">{{ productos[random_index].precio_euros }}€</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
