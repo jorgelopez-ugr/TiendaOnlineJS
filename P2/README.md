@@ -1,6 +1,6 @@
 # Proyecto DAI - Práctica P2
 
-Este proyecto contiene una aplicación en JavaScript que utiliza Mongoose para interactuar con una base de datos MongoDB local en un contenedor Docker y muestra los productos en un servidor web.
+Este proyecto contiene una aplicación en JavaScript que utiliza Mongoose para interactuar con una base de datos MongoDB local en un contenedor Docker y nos muestra los productos en un servidor web.
 
 ## Estructura principal
 

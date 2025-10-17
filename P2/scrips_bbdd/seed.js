@@ -4,12 +4,12 @@ import mongoose from 'mongoose'
 import connectDB from '../model/db.js'
 import Producto from '../model/Producto.js'
 import fs from 'fs'
-	
-await connectDB()
-	
-const datos_productos = Lee_archivo('datos_mercadona.json')
+
+const datos_productos = Lee_archivo('./P2/sample_data/datos_mercadona.json')
 const lista_productos = JSON.parse(datos_productos)
-	
+
+await connectDB()
+
 await Producto.deleteMany({})
 await Guardar_en_modelo(Producto, lista_productos)
 	
