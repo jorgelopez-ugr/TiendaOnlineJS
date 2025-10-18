@@ -5,24 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-gray-900 text-gray-100">
+</head>
+<body class="bg-gray-900 text-gray-100">
     <header class="bg-gray-800 text-gray-100 text-center py-4 border-b border-gray-700">
         <h1 class="text-6xl font-bold text-left">Nuestros Productos</h1>
     </header>
+    <div class="bg-gray-800 py-4">
+        <form action="/buscar" method="GET" class="flex justify-center">
+            <input 
+                type="text" 
+                name="query" 
+                placeholder="Buscar productos..." 
+                class="w-2/3 md:w-1/2 px-4 py-2 rounded-l-lg bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+            <button 
+                type="submit" 
+                class="px-4 py-2 bg-indigo-600 text-gray-100 rounded-r-lg hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+                🔍
+            </button>
+        </form>
+    </div>
     <main class="container mx-auto py-8 max-w-6xl px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {% for i in range(6) %}
+            {% if productos and productos|length > 0 %}
+                {% for producto in productos %}
                 <div class="bg-gray-800 shadow-lg rounded p-4 border border-gray-700">
-                    {% if productos and productos|length > 0 %}
-                        {% set random_index = range(0, productos|length - 1)|random %}
-                        <img class="w-full h-40 object-contain rounded-t-lg bg-white" src="{{ productos[random_index].url_img }}" alt="{{ productos[random_index].texto_1 }}">
-                        <h2 class="text-lg font-bold mt-4 text-gray-100">{{ productos[random_index].texto_1 }}</h2>
-                        <p class="text-gray-300 mt-2">{{ productos[random_index].texto_2 }}</p>
-                        <p class="text-indigo-300 font-semibold mt-2 ">{{ productos[random_index].precio_euros }}€</p>
-                    {% endif %}
+                    <img class="w-full h-40 object-contain rounded-t-lg bg-white" src="{{ producto.url_img }}" alt="{{ producto.texto_1 }}">
+                    <h2 class="text-lg font-bold mt-4 text-gray-100">{{ producto.texto_1 }}</h2>
+                    <p class="text-gray-300 mt-2">{{ producto.texto_2 }}</p>
+                    <p class="text-indigo-300 font-semibold mt-2 ">{{ producto.precio_euros }}€</p>
                 </div>
                 {% endfor %}
+            {% endif %}
         </div>
     </main>
 </body>
